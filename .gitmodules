@@ -1,0 +1,5 @@
+[submodule "submodules/multimodule-app-example"]
+	path = submodules/multimodule-app-example
+	url = git@github.com:AlexeyPanchenko/multimodule-app-example.git
+	branch = master
+
