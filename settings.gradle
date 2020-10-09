@@ -1,1 +1,12 @@
 include ':app'
+
+String submodulePath = "submodules/multimodule-app-example"
+
+include ':db'
+project(':db').projectDir = file("${submodulePath}/db")
+
+include ':list'
+project(':list').projectDir = file("${submodulePath}/list")
+
+include ':add'
+project(':add').projectDir = file("${submodulePath}/add")

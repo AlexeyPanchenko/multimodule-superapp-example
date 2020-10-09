@@ -1,6 +1,7 @@
 apply plugin: 'com.android.application'
 apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-android-extensions'
+apply plugin: 'kotlin-kapt'
 
 android {
 	compileSdkVersion 30
@@ -22,6 +23,10 @@ android {
 			proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
 		}
 	}
+	compileOptions {
+		sourceCompatibility JavaVersion.VERSION_1_8
+		targetCompatibility JavaVersion.VERSION_1_8
+	}
 }
 
 dependencies {
@@ -29,5 +34,14 @@ dependencies {
 	implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
 	implementation 'androidx.appcompat:appcompat:1.2.0'
 	implementation 'androidx.constraintlayout:constraintlayout:2.0.1'
+
+	implementation "org.jetbrains.kotlinx:kotlinx-coroutines-core:$coroutine_version"
+
+	kapt "com.google.dagger:dagger-compiler:$dagger_version"
+	implementation "com.google.dagger:dagger:$dagger_version"
+
+	implementation project(':add')
+	implementation project(':list')
+	implementation project(':db')
 
 }
